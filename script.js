@@ -1,178 +1,134 @@
 /* ==========================================================================
-   Lee Wesley Fortuna — Portfolio Interactivity
-   Includes: Fast Preloader, Bounded Draggable Freeform Polaroid Canvas,
-   Grid Fallback Toggle, Case Study Modal, Hover Slider, EnerSave Simulator,
-   Theme Switching, Filtering, Clipboard Copy & Mailto Composer
+   Lee Wesley Fortuna — Portfolio Interactivity (Specimen Edition)
+   Includes: Project Index / Proof Sheet Toggle, Case Study Modal,
+   Screenshot Lightbox, Discipline Filter, Hover Split Comparison Slider,
+   EnerSave ESP8266 Relay Simulator, Theme Toggle, Copy Actions, Mailto Form,
+   Active Nav State & Reliable Scroll-to-Top
    ========================================================================== */
 
 (() => {
   'use strict';
 
-  /* ------------------------------------------------------------------------
-     Project Case Study Data (Verified & Preserved Intact)
-     ------------------------------------------------------------------------ */
   const CASE_STUDIES = {
     citeflow: {
-      eyebrow: '2026 – Present · Quality Assurance Engineer',
-      title: 'CiteFlow — Institutional Administrative & Faculty Management System',
+      eyebrow: '2026 to Present, Quality Assurance Engineer',
+      title: 'CiteFlow: Institutional Administrative and Faculty Management System',
       screenshots: [
-        { src: 'assets/citeflow-dashboard.webp', caption: 'Admin Dashboard — Live KPIs & Monthly Trends' },
-        { src: 'assets/citeflow-submissions.webp', caption: 'Workflow Submissions & Two-Stage Review Queue' },
-        { src: 'assets/citeflow-architecture.webp', caption: 'Three-Tier Web Architecture (Supabase Cloud)' }
+        { src: 'assets/citeflow-dashboard.webp', caption: 'Admin Dashboard with live KPIs and monthly activity trends', w: 939, h: 476 },
+        { src: 'assets/citeflow-submissions.webp', caption: 'Workflow submissions and two-stage review queue', w: 941, h: 469 },
+        { src: 'assets/citeflow-architecture.webp', caption: 'Three-tier web architecture on Supabase Cloud', w: 1200, h: 712 }
       ],
       context:
-        'Built for the College of Technology and Engineering (COTE) at Cebu Technological University – Argao Campus and presented at Cyber Days 2026 (BSIT Research Congress). CiteFlow replaces fragmented spreadsheets, paper 201 folders, and manual compliance tracking with a centralized 12-module web portal.',
+        'Built for the College of Technology and Engineering (COTE) at Cebu Technological University, Argao Campus and presented at Cyber Days 2026 (BSIT Research Congress). CiteFlow replaces fragmented spreadsheets, paper 201 folders, and manual compliance tracking with a centralized 12-module web portal.',
       architecture:
-        'Three-tier web architecture built with HTML5, Tailwind CSS, JavaScript, and Node.js backed by Supabase Cloud — featuring a 37-table normalized PostgreSQL database with Role-Based Access Control (RBAC), Row-Level Security (RLS), JWT Auth, Realtime updates, and isolated Storage Buckets.',
+        'Three-tier web architecture built with HTML5, Tailwind CSS, JavaScript, and Node.js backed by Supabase Cloud, featuring a 37-table normalized PostgreSQL database with Role-Based Access Control (RBAC), Row-Level Security (RLS), JWT Auth, Realtime updates, and isolated Storage Buckets.',
       contributions: [
         'Designed and executed structured test plans, test cases, and bug-tracking logs across end-to-end user workflows for Faculty, Chairpersons, the College Secretary, and the Dean.',
-        'Conducted functional, system, and user acceptance testing (UAT) validating interface layout, two-stage approval locks, data consistency, and citation/document formatting accuracy.',
+        'Conducted functional, system, and user acceptance testing (UAT) validating interface layout, two-stage approval locks, data consistency, and citation formatting accuracy.',
         'Partnered directly with developers to isolate UI edge cases, prioritize severity fixes, and verify release readiness ahead of institutional evaluation.'
       ],
       outcomes:
         'Evaluated by 40 COTE stakeholders and IT experts: 4.46 / 5.00 overall ISO/IEC 25010:2023 software quality mean, 4.56 objective fulfillment mean, and 80.0 mean System Usability Scale (SUS) score.',
-      stack: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Node.js', 'Supabase / PostgreSQL', 'RBAC & RLS', 'ISO/IEC 25010 QA']
+      stack: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Node.js', 'Supabase and PostgreSQL', 'RBAC and RLS', 'ISO/IEC 25010 QA']
     },
     hover: {
-      eyebrow: '2026 · Lead Developer',
-      title: 'Hover — Desktop Screenshot & Visual Referencing Utility',
+      eyebrow: '2026, Lead Developer',
+      title: 'Hover: Desktop Screenshot and Visual Referencing Utility',
       screenshots: [
-        { src: 'assets/hover.webp', caption: 'Hover v1.0 Floating Toolbar & Pinned Overlay in Action' }
+        { src: 'assets/hover.webp', caption: 'Hover v1.0 floating toolbar and pinned reference overlay on Windows', w: 1200, h: 490 }
       ],
       context:
-        'Multi-window design reviews, coding alongside specifications, and visual QA routinely suffer from constant Alt-Tab context switching. Hover was built as a lightweight Windows desktop utility (Hover v1.0) that keeps pinned references floating seamlessly above active workspaces.',
+        'Multi-window design reviews, coding alongside specifications, and visual QA routinely suffer from constant Alt-Tab context switching. Hover was built as a lightweight Windows desktop utility that keeps pinned references floating above active workspaces.',
       architecture:
         'Event-driven desktop architecture engineered for low-friction overlay management, custom canvas rendering, global snip shortcuts (Ctrl+Shift+S), adjustable window opacity, and OS-level click-through event pass-through.',
       contributions: [
-        'Led end-to-end architecture, interaction design, and Windows packaging (Hover v1.0) focused on zero-clutter visual referencing.',
+        'Led end-to-end architecture, interaction design, and Windows packaging focused on zero-clutter visual referencing.',
         'Built a real-time split visual comparison slider allowing side-by-side pixel inspection between reference captures and live screens.',
-        'Implemented click-through transparency mode and custom on-canvas annotation/drawing tools so users can inspect or trace without losing focus in underlying apps.'
+        'Implemented click-through transparency mode and custom on-canvas annotation tools so users can inspect or trace without losing focus in underlying apps.'
       ],
       outcomes:
-        'Shipped as a standalone Windows productivity utility designed to eliminate screen-switching friction across design, QA, and development workflows.',
-      stack: ['Desktop Utility', 'Event-Driven Architecture', 'Interactive Canvas', 'Visual Comparison Slider', 'Click-Through Overlay']
+        'Shipped as a standalone Windows productivity utility designed to remove screen-switching friction across design, QA, and development workflows.',
+      stack: ['Desktop utility', 'Event-driven architecture', 'Interactive canvas', 'Visual comparison slider', 'Click-through overlay']
     },
     apir: {
-      eyebrow: '2026 · Creator & Developer',
-      title: 'Apir — Adaptive Presentation Interface & Remote (QR Pairing Edition)',
+      eyebrow: '2026, Creator and Developer',
+      title: 'Apir: Adaptive Presentation Interface and Remote (QR Pairing Edition)',
       screenshots: [
-        { src: 'assets/apir.webp', caption: 'Apir — High-Five QR & PIN Pairing Window', portrait: true }
+        { src: 'assets/apir.webp', caption: 'Apir High-Five QR and PIN pairing window', portrait: true, w: 377, h: 602 }
       ],
       context:
-        'Named after the Filipino "apir" (high-five), Apir (Adaptive Presentation Interface & Remote) turns a mobile phone into a wireless presentation remote and adaptive companion for a Windows PC without manual IP setup or cloud logins.',
+        'Named after the Filipino word apir (high-five), Apir turns a mobile phone into a wireless presentation remote and adaptive companion for a Windows PC without manual IP setup or cloud logins.',
       architecture:
-        'Desktop pairing host generating live session QR codes paired with a rotatable 4-digit security PIN and selectable network adapter binding (supporting local Wi-Fi and tunnel interfaces such as Cloudflare WARP).',
+        'Desktop pairing host generating live session QR codes paired with a rotatable 4-digit security PIN and selectable network adapter binding supporting local Wi-Fi and tunnel interfaces such as Cloudflare WARP.',
       contributions: [
         'Designed and built the High-Five Pairing desktop window supporting instant scanning via a phone camera or the companion Apir App.',
-        'Implemented one-click PIN regeneration ("New PIN") to keep phone-to-PC remote presentation sessions verified and secure.',
-        'Added network interface selection so presenters can switch cleanly between local Wi-Fi adapters and VPN/WARP interfaces on campus.'
+        'Implemented one-click PIN regeneration (New PIN) to keep phone-to-PC remote presentation sessions verified and secure.',
+        'Added network interface selection so presenters can switch cleanly between local Wi-Fi adapters and VPN or WARP interfaces on campus.'
       ],
       outcomes:
         'Open-sourced at github.com/Huginn45/Apir as a fast, Filipino-inspired mobile presentation remote with zero-friction QR pairing.',
-      stack: ['Desktop Utility', 'Presentation Remote', 'QR & PIN Pairing', 'Network Interface Binding', 'Cross-Device UX']
+      stack: ['Desktop utility', 'Presentation remote', 'QR and PIN pairing', 'Network interface binding', 'Cross-device UX']
     },
     enersave: {
-      eyebrow: '2026 · Co-Developer & Firmware Engineer',
-      title: 'EnerSave — Intelligent IoT Energy Monitoring & Automation System',
+      eyebrow: '2026, Co-Developer and Firmware Engineer',
+      title: 'EnerSave: Intelligent IoT Energy Monitoring and Automation System',
       screenshots: [
-        { src: 'assets/enersave.webp', caption: 'EnerSave Live Demo — ESP8266 Control Rig & 3-Bulb Fixture', portrait: true }
+        { src: 'assets/enersave.webp', caption: 'EnerSave live classroom demo with ESP8266 control rig and 3-bulb fixture', portrait: true, w: 277, h: 527 }
       ],
       context:
-        'Indoor rooms and classrooms frequently waste electricity when lighting fixtures remain powered while unoccupied. EnerSave combines microcontroller firmware, environmental sensing, voice assistants, and a responsive web SPA to automate room lighting responsibly.',
+        'Indoor rooms and classrooms waste electricity when lighting fixtures remain powered while unoccupied. EnerSave combines microcontroller firmware, environmental sensing, voice assistants, and a responsive web SPA to automate room lighting.',
       architecture:
-        'ESP8266 (NodeMCU / WeMos D1 Mini) hardware stack wiring an Ultrasonic motion sensor (~100 cm detection range), DHT11 environmental sensor, and a 4-channel relay module (pins D1, D5, D6) controlling 220V lighting fixtures, bridged to SinricPro for Alexa/Google Home voice commands and a real-time SPA web dashboard.',
+        'ESP8266 (NodeMCU and WeMos D1 Mini) hardware stack wiring an Ultrasonic motion sensor (about 100 cm range), DHT11 environmental sensor, and a 4-channel relay module (pins D1, D5, D6) controlling 220 V lighting fixtures, bridged to SinricPro for Alexa and Google Home voice commands and a real-time SPA web dashboard.',
       contributions: [
         'Engineered ESP8266 firmware handling sensor polling, relay switching logic, and cloud state synchronization.',
-        'Programmed adaptive automated operating modes — Standard Mode (motion-triggered auto-control) and Night Mode (manual-priority override with ultrasonic auto-off disabled).',
-        'Integrated hands-free voice control via SinricPro alongside manual overrides and real-time analytics on the responsive web monitoring dashboard.'
+        'Programmed adaptive operating modes: Standard Mode (motion-triggered auto-control) and Night Mode (manual-priority override with ultrasonic auto-off disabled).',
+        'Integrated hands-free voice control via SinricPro alongside manual overrides and live telemetry on the web dashboard.'
       ],
       outcomes:
         'Delivered a working multi-modal IoT prototype combining manual, voice, and sensor-driven room energy management.',
-      stack: ['ESP8266 Firmware', 'Ultrasonic & DHT11 Sensors', '4-Channel Relay', 'SinricPro Voice Control', 'Web SPA Dashboard']
+      stack: ['ESP8266 firmware', 'Ultrasonic and DHT11 sensors', '4-channel relay', 'SinricPro voice control', 'Web SPA dashboard']
     },
     parsershub: {
-      eyebrow: '2026 · Technical Writer & Systems Analyst',
-      title: 'Parsers Hub 2.0 — Adaptive Learning Ecosystem',
+      eyebrow: '2026, Technical Writer and Systems Analyst',
+      title: 'Parsers Hub 2.0: Adaptive Learning Ecosystem',
       context:
-        'Static learning repositories often fail to address accumulated programming-logic backlogs among BSIT students. Parsers Hub 2.0 reimagines CTU–Argao’s LMS into an adaptive ecosystem combining academic performance analytics with AI-driven tutoring.',
+        'Static learning repositories often fail to address accumulated programming-logic backlogs among BSIT students. Parsers Hub 2.0 updates CTU Argao’s LMS into an adaptive ecosystem combining academic performance analytics with AI-driven tutoring.',
       architecture:
-        'Structured around an Input–Process–Output (IPO) framework executed in Agile SDLC sprints, unifying web/mobile access, multimedia learning modules, performance dashboards, and an AI tutoring engine.',
+        'Structured around an Input-Process-Output (IPO) framework executed in Agile SDLC sprints, unifying web and mobile access, multimedia learning modules, performance dashboards, and an AI tutoring engine.',
       contributions: [
-        'Authored comprehensive end-to-end system documentation, conceptual frameworks, IPO/process models, Gantt schedules, and formal defense manuscripts.',
-        'Acted as System Architect & Analyst evaluating frontend user flows and system architecture to maintain clarity across learning modules.',
+        'Authored comprehensive system documentation, conceptual frameworks, IPO and process models, Gantt schedules, and formal defense manuscripts.',
+        'Evaluated frontend user flows and system architecture to maintain clarity across adaptive learning modules.',
         'Structured the quantitative evaluation design aligned with ISO 9126 quality standards and the Technology Acceptance Model (TAM) for 180 BSIT students and 15 IT experts.'
       ],
       outcomes:
-        'Produced complete technical blueprints, investor/defense pitch materials, and user-centered system architecture validated for institutional readiness.',
-      stack: ['Systems Analysis', 'Technical Documentation', 'IPO & Process Modeling', 'ISO 9126 & TAM', 'Agile SDLC']
+        'Produced complete technical blueprints, defense pitch materials, and user-centered system architecture validated for institutional readiness.',
+      stack: ['Systems analysis', 'Technical documentation', 'IPO and process modeling', 'ISO 9126 and TAM', 'Agile SDLC']
     },
     ssgmom: {
-      eyebrow: '2026 – 2027 · Deputy Executive & Legislative Secretary',
-      title: 'SSG MoM Generator — AI-Powered Legislative Minutes Generator',
+      eyebrow: '2026 to 2027, Deputy Executive and Legislative Secretary',
+      title: 'SSG MoM Generator: AI-Powered Legislative Minutes Generator',
       screenshots: [
-        { src: 'assets/ssg-mom.webp', caption: 'SSG MoM Generator — Live at ssg-mom-generator.vercel.app' }
+        { src: 'assets/ssg-mom.webp', caption: 'SSG MoM Generator live at ssg-mom-generator.vercel.app', w: 1200, h: 545 }
       ],
       context:
-        'Student government secretariats produce high volumes of recurring official documents — Minutes of the Meeting, Notices, Memorandums, Request Letters, Parent’s Consents/Waivers, and Accomplishment Reports — where formatting errors slow approvals.',
+        'Student government secretariats produce high volumes of recurring official documents (Minutes of the Meeting, Notices, Memorandums, Request Letters, Parent’s Consents and Waivers, and Accomplishment Reports) where formatting errors slow approvals.',
       architecture:
-        'AI-powered web workspace deployed on Vercel (ssg-mom-generator.vercel.app) featuring 1-click Meeting Recipes (Legislative, Executive, Emergency), drag-and-drop .docx upload, fast shorthand/dictation input, side-by-side Formatted Minutes and Markdown editing, plus Google Docs, Markdown, and PDF export.',
+        'AI-powered web workspace deployed on Vercel (ssg-mom-generator.vercel.app) featuring 1-click Meeting Recipes (Legislative, Executive, Emergency), drag-and-drop .docx upload, fast shorthand and dictation input, side-by-side Formatted Minutes and Markdown editing, plus Google Docs, Markdown, and PDF export.',
       contributions: [
-        'Built and deployed the AI-powered SSG MoM Generator with Legislative, Executive, and Emergency presets to turn rough shorthand notes or existing .docx drafts into structured official Minutes of the Meeting.',
-        'Integrated quick export options (Copy, Google Docs, Markdown, and PDF) alongside official CTU–Argao SSG branding.',
-        'Maintained official secretariat archives and streamlined recurring paperwork across Request Letters, Parent’s Consents/Waivers, and Accomplishment Reports.'
+        'Built and deployed the AI-powered SSG MoM Generator with Legislative, Executive, and Emergency presets to convert rough shorthand notes or existing .docx drafts into structured official minutes.',
+        'Integrated quick export options (Copy, Google Docs, Markdown, and PDF) alongside official CTU Argao SSG formatting.',
+        'Maintained official secretariat archives and streamlined recurring paperwork across Request Letters, Parent’s Consents and Waivers, and Accomplishment Reports.'
       ],
       outcomes:
         'Live in production at ssg-mom-generator.vercel.app and open-sourced at github.com/Huginn45/ssg-mom-generator.',
-      stack: ['AI Workflow Automation', 'Meeting Recipes', '.docx Upload', 'Markdown / GDocs / PDF Export', 'Vercel']
+      stack: ['AI workflow automation', 'Meeting recipes', '.docx upload', 'Markdown, GDocs, and PDF export', 'Vercel']
     }
   };
 
-  /* ------------------------------------------------------------------------
-     Fast, Respectful Initial Preloader
-     ------------------------------------------------------------------------ */
-  const preloader = document.getElementById('preloader');
-  const preloaderFill = document.getElementById('preloader-fill');
-  const preloaderPct = document.getElementById('preloader-pct');
-  const preloaderSkip = document.getElementById('preloader-skip');
   const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function dismissPreloader() {
-    if (!preloader || preloader.classList.contains('is-done')) return;
-    preloader.classList.add('is-done');
-    preloader.setAttribute('aria-hidden', 'true');
-  }
-
-  if (preloader) {
-    if (prefersReducedMotion) {
-      dismissPreloader();
-    } else {
-      let progress = 0;
-      const tick = setInterval(() => {
-        progress = Math.min(100, progress + 18);
-        if (preloaderFill) preloaderFill.style.width = `${progress}%`;
-        if (preloaderPct) preloaderPct.textContent = `${String(progress).padStart(2, '0')}%`;
-        if (progress >= 100) {
-          clearInterval(tick);
-          setTimeout(dismissPreloader, 160);
-        }
-      }, 85);
-
-      if (preloaderSkip) {
-        preloaderSkip.addEventListener('click', () => {
-          clearInterval(tick);
-          dismissPreloader();
-        });
-      }
-      // Failsafe so preloader never hangs
-      setTimeout(() => {
-        clearInterval(tick);
-        dismissPreloader();
-      }, 1200);
-    }
-  }
-
   /* ------------------------------------------------------------------------
-     Theme Toggle (Light Editorial / Dark Ink)
+     Theme Toggle (Oat Paper Light / Warm Charcoal Dark)
      ------------------------------------------------------------------------ */
   const root = document.documentElement;
   const themeBtn = document.getElementById('theme-toggle');
@@ -184,15 +140,15 @@
       if (themeBtn) themeBtn.setAttribute('aria-pressed', 'true');
       if (themeIcon) {
         themeIcon.innerHTML =
-          '<circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8" fill="none"/>' +
-          '<path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2.5 12h2M19.5 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>';
+          '<circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" fill="none"/>' +
+          '<path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2.5 12h2M19.5 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>';
       }
     } else {
       root.removeAttribute('data-theme');
       if (themeBtn) themeBtn.setAttribute('aria-pressed', 'false');
       if (themeIcon) {
         themeIcon.innerHTML =
-          '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/>';
+          '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>';
       }
     }
   }
@@ -277,7 +233,7 @@
   });
 
   /* ------------------------------------------------------------------------
-     Case Study Modal (Opened from Both Polaroid Canvas & Structured Work)
+     Case Study Modal & Screenshot Zoom Lightbox
      ------------------------------------------------------------------------ */
   const modalBackdrop = document.getElementById('case-study-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
@@ -342,13 +298,13 @@
     const galleryHtml =
       study.screenshots && study.screenshots.length
         ? `<div class="modal__section">
-            <h4>Project Screenshots (Click to Zoom)</h4>
+            <h4>Project captures (select any image to zoom)</h4>
             <div class="modal__gallery">
               ${study.screenshots
                 .map(
                   (shot) => `
                 <button type="button" class="modal__thumb ${shot.portrait ? 'modal__thumb--portrait' : ''}" data-lightbox-src="${shot.src}" data-lightbox-caption="${shot.caption}">
-                  <img src="${shot.src}" alt="${shot.caption}" loading="lazy">
+                  <img src="${shot.src}" width="${shot.w}" height="${shot.h}" alt="${shot.caption}" loading="lazy">
                   <span class="modal__thumb-cap">${shot.caption}</span>
                 </button>`
                 )
@@ -362,26 +318,26 @@
     modalBody.innerHTML = `
       ${galleryHtml}
       <div class="modal__section">
-        <h4>Overview &amp; Context</h4>
+        <h4>Overview and context</h4>
         <p>${study.context}</p>
       </div>
       <div class="modal__section">
-        <h4>Architecture &amp; Technical Scope</h4>
+        <h4>Architecture and technical scope</h4>
         <p>${study.architecture}</p>
       </div>
       <div class="modal__section">
-        <h4>Key Contributions</h4>
+        <h4>Key contributions</h4>
         <ul class="project-highlights">
           ${study.contributions.map((item) => `<li>${item}</li>`).join('')}
         </ul>
       </div>
       <div class="modal__section">
-        <h4>Verified Outcome</h4>
+        <h4>Verified outcome</h4>
         <p>${study.outcomes}</p>
       </div>
-      <div class="tag-row" style="margin-bottom:0;">
-        ${study.stack.map((tech) => `<span class="tag">${tech}</span>`).join('')}
-      </div>
+      <ul class="spec-tags">
+        ${study.stack.map((tech) => `<li>${tech}</li>`).join('')}
+      </ul>
     `;
 
     modalBackdrop.classList.add('is-open');
@@ -412,6 +368,7 @@
       if (e.target === modalBackdrop) closeModal();
     });
   }
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (lightboxEl && lightboxEl.classList.contains('is-open')) {
@@ -423,189 +380,41 @@
   });
 
   /* ------------------------------------------------------------------------
-     Tightened Bounded Freeform Polaroid Canvas
-     - Clamped cleanly to stage bounds on drag AND resize
-     - Drag threshold (6px) guarantees crisp click-to-open Case Study modal
-     - Keyboard accessible (Enter/Space opens study, Arrow keys nudge within bounds)
-     - Grid / Freeform view switcher + Reset Layout
+     Specimen Project Index: Row Index / Proof Sheet Toggle & Keyboard Open
      ------------------------------------------------------------------------ */
-  const canvasStage = document.getElementById('freeform-stage');
-  const resetCanvasBtn = document.getElementById('canvas-reset-btn');
+  const indexStage = document.getElementById('freeform-stage');
+  const resetIndexBtn = document.getElementById('canvas-reset-btn');
   const toggleLayoutBtn = document.getElementById('canvas-layout-toggle');
-  const canvasItems = canvasStage ? Array.from(canvasStage.querySelectorAll('[data-canvas-item]')) : [];
-  let topZ = 20;
-  const PAD = 14;
-  const BOTTOM_SAFE = 44; // keeps coordinate footer legible
+  const indexItems = indexStage ? Array.from(indexStage.querySelectorAll('[data-canvas-item]')) : [];
 
-  function isGridMode() {
-    if (!canvasStage) return true;
-    return canvasStage.classList.contains('is-grid-mode') || window.innerWidth <= 760;
-  }
+  indexItems.forEach((item) => {
+    const studyId = item.getAttribute('data-canvas-study');
+    if (!studyId) return;
+    item.addEventListener('click', () => openModal(studyId, item));
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(studyId, item);
+      }
+    });
+  });
 
-  function clampPosition(el, left, top) {
-    const stageRect = canvasStage.getBoundingClientRect();
-    const elW = el.offsetWidth || 224;
-    const elH = el.offsetHeight || 200;
-    const maxLeft = Math.max(PAD, stageRect.width - elW - PAD);
-    const maxTop = Math.max(PAD, stageRect.height - elH - BOTTOM_SAFE);
-    return {
-      left: Math.max(PAD, Math.min(maxLeft, Math.round(left))),
-      top: Math.max(PAD, Math.min(maxTop, Math.round(top)))
-    };
-  }
-
-  function layoutCanvasDefault() {
-    if (!canvasStage || isGridMode()) return;
-    const stageRect = canvasStage.getBoundingClientRect();
-    if (stageRect.width < 100) return;
-
-    canvasItems.forEach((el, idx) => {
-      const rx = parseFloat(el.getAttribute('data-x') || '0.05');
-      const ry = parseFloat(el.getAttribute('data-y') || '0.1');
-      const targetLeft = rx * stageRect.width;
-      const targetTop = ry * stageRect.height;
-      const pos = clampPosition(el, targetLeft, targetTop);
-      el.style.left = `${pos.left}px`;
-      el.style.top = `${pos.top}px`;
-      el.style.zIndex = String(10 + idx);
+  if (toggleLayoutBtn && indexStage) {
+    toggleLayoutBtn.addEventListener('click', () => {
+      const sheetOn = indexStage.classList.toggle('is-sheet-mode');
+      toggleLayoutBtn.setAttribute('aria-pressed', String(sheetOn));
+      toggleLayoutBtn.textContent = sheetOn ? 'Index rows' : 'Proof sheet';
     });
   }
 
-  function keepAllInBounds() {
-    if (!canvasStage || isGridMode()) return;
-    canvasItems.forEach((el) => {
-      const curLeft = parseFloat(el.style.left || '0');
-      const curTop = parseFloat(el.style.top || '0');
-      const pos = clampPosition(el, curLeft, curTop);
-      el.style.left = `${pos.left}px`;
-      el.style.top = `${pos.top}px`;
-    });
-  }
-
-  if (canvasStage && canvasItems.length) {
-    // Initial bounded layout
-    layoutCanvasDefault();
-
-    canvasItems.forEach((el) => {
-      const studyId = el.getAttribute('data-canvas-study');
-      let startX = 0;
-      let startY = 0;
-      let origLeft = 0;
-      let origTop = 0;
-      let moved = false;
-      let pointerActive = false;
-
-      el.addEventListener('pointerdown', (e) => {
-        if (isGridMode()) return;
-        if (e.button !== 0 && e.pointerType === 'mouse') return;
-        pointerActive = true;
-        moved = false;
-        topZ += 1;
-        el.style.zIndex = String(topZ);
-        startX = e.clientX;
-        startY = e.clientY;
-        origLeft = parseFloat(el.style.left || '0');
-        origTop = parseFloat(el.style.top || '0');
-        el.setPointerCapture(e.pointerId);
-      });
-
-      el.addEventListener('pointermove', (e) => {
-        if (!pointerActive || isGridMode()) return;
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        if (!moved && Math.hypot(dx, dy) > 6) {
-          moved = true;
-          el.classList.add('is-dragging');
-        }
-        if (moved) {
-          const pos = clampPosition(el, origLeft + dx, origTop + dy);
-          el.style.left = `${pos.left}px`;
-          el.style.top = `${pos.top}px`;
-        }
-      });
-
-      const endPointer = (e) => {
-        if (!pointerActive) return;
-        pointerActive = false;
-        el.classList.remove('is-dragging');
-        if (el.hasPointerCapture && el.hasPointerCapture(e.pointerId)) {
-          el.releasePointerCapture(e.pointerId);
-        }
-        // Clean click (did not drag past threshold) -> open full case study
-        if (!moved && studyId) {
-          openModal(studyId, el);
-        }
-      };
-
-      el.addEventListener('pointerup', endPointer);
-      el.addEventListener('pointercancel', endPointer);
-
-      // Click handler when in Grid mode / mobile fallback
-      el.addEventListener('click', () => {
-        if (isGridMode() && studyId) {
-          openModal(studyId, el);
-        }
-      });
-
-      // Keyboard access: Enter/Space opens study, Arrows nudge within bounds
-      el.addEventListener('keydown', (e) => {
-        if ((e.key === 'Enter' || e.key === ' ') && studyId) {
-          e.preventDefault();
-          openModal(studyId, el);
-          return;
-        }
-        if (isGridMode()) return;
-        const step = e.shiftKey ? 36 : 16;
-        let dx = 0;
-        let dy = 0;
-        if (e.key === 'ArrowLeft') dx = -step;
-        if (e.key === 'ArrowRight') dx = step;
-        if (e.key === 'ArrowUp') dy = -step;
-        if (e.key === 'ArrowDown') dy = step;
-        if (dx || dy) {
-          e.preventDefault();
-          topZ += 1;
-          el.style.zIndex = String(topZ);
-          const pos = clampPosition(
-            el,
-            parseFloat(el.style.left || '0') + dx,
-            parseFloat(el.style.top || '0') + dy
-          );
-          el.style.left = `${pos.left}px`;
-          el.style.top = `${pos.top}px`;
-        }
-      });
-    });
-
-    if (resetCanvasBtn) {
-      resetCanvasBtn.addEventListener('click', () => {
-        canvasStage.classList.remove('is-grid-mode');
-        if (toggleLayoutBtn) {
-          toggleLayoutBtn.setAttribute('aria-pressed', 'false');
-          toggleLayoutBtn.textContent = 'Grid View';
-        }
-        layoutCanvasDefault();
-        showToast('Canvas layout reset.');
-      });
-    }
-
-    if (toggleLayoutBtn) {
-      toggleLayoutBtn.addEventListener('click', () => {
-        const gridOn = canvasStage.classList.toggle('is-grid-mode');
-        toggleLayoutBtn.setAttribute('aria-pressed', String(gridOn));
-        toggleLayoutBtn.textContent = gridOn ? 'Freeform View' : 'Grid View';
-        if (!gridOn) {
-          requestAnimationFrame(layoutCanvasDefault);
-        }
-      });
-    }
-
-    let resizeRaf = null;
-    window.addEventListener('resize', () => {
-      cancelAnimationFrame(resizeRaf);
-      resizeRaf = requestAnimationFrame(() => {
-        if (!isGridMode()) keepAllInBounds();
-      });
+  if (resetIndexBtn && indexStage) {
+    resetIndexBtn.addEventListener('click', () => {
+      indexStage.classList.remove('is-sheet-mode');
+      if (toggleLayoutBtn) {
+        toggleLayoutBtn.setAttribute('aria-pressed', 'false');
+        toggleLayoutBtn.textContent = 'Proof sheet';
+      }
+      showToast('Project index view reset.');
     });
   }
 
@@ -682,19 +491,19 @@
       roomAttr: 'standard',
       relays: { d1: true, d5: true, d6: false },
       sensor: 'Ultrasonic: Active (64 cm)',
-      power: 'Est. Load: 24 W · Auto-Off ON'
+      power: 'Load: 24 W, Auto-Off ON'
     },
     night: {
       roomAttr: 'night',
       relays: { d1: false, d5: false, d6: true },
-      sensor: 'Ultrasonic: Auto-Off Paused',
-      power: 'Est. Load: 9 W · Night Mode'
+      sensor: 'Ultrasonic: Auto-Off paused',
+      power: 'Load: 9 W, Night mode'
     },
     voice: {
       roomAttr: 'standard',
       relays: { d1: true, d5: true, d6: true },
-      sensor: 'SinricPro: "All Lights On"',
-      power: 'Est. Load: 36 W · Voice Sync'
+      sensor: 'SinricPro: “All lights on”',
+      power: 'Load: 36 W, Voice sync'
     }
   };
 
@@ -722,19 +531,38 @@
   });
 
   /* ------------------------------------------------------------------------
-     Quick Mailto Message Composer
+     Mailto Message Composer with Accessible Inline Validation
      ------------------------------------------------------------------------ */
   const contactForm = document.getElementById('contact-form');
+  const contactHelp = document.getElementById('contact-help');
+
   if (contactForm) {
+    const nameEl = document.getElementById('sender-name');
+    const subjectEl = document.getElementById('sender-subject');
+    const messageEl = document.getElementById('sender-message');
+
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = (document.getElementById('sender-name')?.value || '').trim();
-      const subject = (document.getElementById('sender-subject')?.value || 'IT / Web Dev / Multimedia Internship Inquiry').trim();
-      const message = (document.getElementById('sender-message')?.value || '').trim();
+      const name = (nameEl?.value || '').trim();
+      const subject = (subjectEl?.value || 'IT, Web Dev, or Multimedia Internship Inquiry').trim();
+      const message = (messageEl?.value || '').trim();
+
+      if (nameEl) nameEl.setAttribute('aria-invalid', String(!name));
+      if (messageEl) messageEl.setAttribute('aria-invalid', String(!message));
+
       if (!name || !message) {
-        showToast('Please enter your name and a brief message.');
+        if (contactHelp) {
+          contactHelp.textContent = 'Enter your name and a brief message to prepare the draft.';
+        }
+        const firstInvalid = !name ? nameEl : messageEl;
+        if (firstInvalid) {
+          if (contactHelp) firstInvalid.setAttribute('aria-describedby', contactHelp.id);
+          firstInvalid.focus();
+        }
         return;
       }
+
+      if (contactHelp) contactHelp.textContent = '';
       const body = `Hi Lee Wesley,\n\n${message}\n\nBest regards,\n${name}`;
       window.location.href = `mailto:fortwesley237@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       showToast('Opening your email client with the draft ready.');
@@ -742,25 +570,12 @@
   }
 
   /* ------------------------------------------------------------------------
-     Scroll Reveal & Active Nav Highlighting
+     Active Navigation Section Tracking
      ------------------------------------------------------------------------ */
-  const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !prefersReducedMotion) {
-    const revealObs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
-    );
-    revealEls.forEach((el) => revealObs.observe(el));
+  const sections = document.querySelectorAll('main section[id]');
+  const navAnchors = document.querySelectorAll('.nav-link');
 
-    const sections = document.querySelectorAll('main section[id]');
-    const navAnchors = document.querySelectorAll('.nav-link');
+  if ('IntersectionObserver' in window && sections.length) {
     const navObs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -775,12 +590,10 @@
       { rootMargin: '-35% 0px -55% 0px' }
     );
     sections.forEach((sec) => navObs.observe(sec));
-  } else {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
   /* ------------------------------------------------------------------------
-     Reliable Scroll-to-Top for Brand Logo & Back-to-Top Links
+     Reliable Scroll-to-Top for Brand Logo and Back-to-Top Links
      ------------------------------------------------------------------------ */
   document.querySelectorAll('a[href="#top"]').forEach((link) => {
     link.addEventListener('click', (e) => {
