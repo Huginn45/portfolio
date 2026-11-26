@@ -778,4 +778,20 @@
   } else {
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
+
+  /* ------------------------------------------------------------------------
+     Reliable Scroll-to-Top for Brand Logo & Back-to-Top Links
+     ------------------------------------------------------------------------ */
+  document.querySelectorAll('a[href="#top"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+      if (window.history && window.history.replaceState && window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    });
+  });
 })();
