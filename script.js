@@ -15,6 +15,11 @@
     citeflow: {
       eyebrow: '2026 – Present · Quality Assurance Engineer',
       title: 'CiteFlow — Institutional Administrative & Faculty Management System',
+      screenshots: [
+        { src: 'assets/citeflow-dashboard.webp', caption: 'Admin Dashboard — Live KPIs & Monthly Trends' },
+        { src: 'assets/citeflow-submissions.webp', caption: 'Workflow Submissions & Two-Stage Review Queue' },
+        { src: 'assets/citeflow-architecture.webp', caption: 'Three-Tier Web Architecture (Supabase Cloud)' }
+      ],
       context:
         'Built for the College of Technology and Engineering (COTE) at Cebu Technological University – Argao Campus and presented at Cyber Days 2026 (BSIT Research Congress). CiteFlow replaces fragmented spreadsheets, paper 201 folders, and manual compliance tracking with a centralized 12-module web portal.',
       architecture:
@@ -31,10 +36,13 @@
     hover: {
       eyebrow: '2026 · Lead Developer',
       title: 'Hover — Desktop Screenshot & Visual Referencing Utility',
+      screenshots: [
+        { src: 'assets/hover.webp', caption: 'Hover v1.0 Floating Toolbar & Pinned Overlay in Action' }
+      ],
       context:
         'Multi-window design reviews, coding alongside specifications, and visual QA routinely suffer from constant Alt-Tab context switching. Hover was built as a lightweight Windows desktop utility (Hover v1.0) that keeps pinned references floating seamlessly above active workspaces.',
       architecture:
-        'Event-driven desktop architecture engineered for low-friction overlay management, custom canvas rendering, adjustable window opacity, and OS-level click-through event pass-through.',
+        'Event-driven desktop architecture engineered for low-friction overlay management, custom canvas rendering, global snip shortcuts (Ctrl+Shift+S), adjustable window opacity, and OS-level click-through event pass-through.',
       contributions: [
         'Led end-to-end architecture, interaction design, and Windows packaging (Hover v1.0) focused on zero-clutter visual referencing.',
         'Built a real-time split visual comparison slider allowing side-by-side pixel inspection between reference captures and live screens.',
@@ -44,9 +52,31 @@
         'Shipped as a standalone Windows productivity utility designed to eliminate screen-switching friction across design, QA, and development workflows.',
       stack: ['Desktop Utility', 'Event-Driven Architecture', 'Interactive Canvas', 'Visual Comparison Slider', 'Click-Through Overlay']
     },
+    apir: {
+      eyebrow: '2026 · Creator & Developer',
+      title: 'Apir — Adaptive Presentation Interface & Remote (QR Pairing Edition)',
+      screenshots: [
+        { src: 'assets/apir.webp', caption: 'Apir — High-Five QR & PIN Pairing Window', portrait: true }
+      ],
+      context:
+        'Named after the Filipino "apir" (high-five), Apir (Adaptive Presentation Interface & Remote) turns a mobile phone into a wireless presentation remote and adaptive companion for a Windows PC without manual IP setup or cloud logins.',
+      architecture:
+        'Desktop pairing host generating live session QR codes paired with a rotatable 4-digit security PIN and selectable network adapter binding (supporting local Wi-Fi and tunnel interfaces such as Cloudflare WARP).',
+      contributions: [
+        'Designed and built the High-Five Pairing desktop window supporting instant scanning via a phone camera or the companion Apir App.',
+        'Implemented one-click PIN regeneration ("New PIN") to keep phone-to-PC remote presentation sessions verified and secure.',
+        'Added network interface selection so presenters can switch cleanly between local Wi-Fi adapters and VPN/WARP interfaces on campus.'
+      ],
+      outcomes:
+        'Open-sourced at github.com/Huginn45/Apir as a fast, Filipino-inspired mobile presentation remote with zero-friction QR pairing.',
+      stack: ['Desktop Utility', 'Presentation Remote', 'QR & PIN Pairing', 'Network Interface Binding', 'Cross-Device UX']
+    },
     enersave: {
       eyebrow: '2026 · Co-Developer & Firmware Engineer',
       title: 'EnerSave — Intelligent IoT Energy Monitoring & Automation System',
+      screenshots: [
+        { src: 'assets/enersave.webp', caption: 'EnerSave Live Demo — ESP8266 Control Rig & 3-Bulb Fixture', portrait: true }
+      ],
       context:
         'Indoor rooms and classrooms frequently waste electricity when lighting fixtures remain powered while unoccupied. EnerSave combines microcontroller firmware, environmental sensing, voice assistants, and a responsive web SPA to automate room lighting responsibly.',
       architecture:
@@ -78,19 +108,22 @@
     },
     ssgmom: {
       eyebrow: '2026 – 2027 · Deputy Executive & Legislative Secretary',
-      title: 'SSG MoM Generator & Secretariat Workflow Suite',
+      title: 'SSG MoM Generator — AI-Powered Legislative Minutes Generator',
+      screenshots: [
+        { src: 'assets/ssg-mom.webp', caption: 'SSG MoM Generator — Live at ssg-mom-generator.vercel.app' }
+      ],
       context:
         'Student government secretariats produce high volumes of recurring official documents — Minutes of the Meeting, Notices, Memorandums, Request Letters, Parent’s Consents/Waivers, and Accomplishment Reports — where formatting errors slow approvals.',
       architecture:
-        'Automated web-based document generation workflow paired with a structured secretariat repository designed to enforce consistent institutional templates and speed up turnaround.',
+        'AI-powered web workspace deployed on Vercel (ssg-mom-generator.vercel.app) featuring 1-click Meeting Recipes (Legislative, Executive, Emergency), drag-and-drop .docx upload, fast shorthand/dictation input, side-by-side Formatted Minutes and Markdown editing, plus Google Docs, Markdown, and PDF export.',
       contributions: [
-        'Built and deployed the SSG MoM Generator to standardize and accelerate drafting official Minutes of the Meeting for Supreme Student Government – CTU Argao.',
-        'Organized and maintained official legislative and executive secretariat archives including Notices of Meeting and Memorandums.',
-        'Streamlined recurring administrative paperwork workflows across Request Letters, Waivers, and Accomplishment Reports.'
+        'Built and deployed the AI-powered SSG MoM Generator with Legislative, Executive, and Emergency presets to turn rough shorthand notes or existing .docx drafts into structured official Minutes of the Meeting.',
+        'Integrated quick export options (Copy, Google Docs, Markdown, and PDF) alongside official CTU–Argao SSG branding.',
+        'Maintained official secretariat archives and streamlined recurring paperwork across Request Letters, Parent’s Consents/Waivers, and Accomplishment Reports.'
       ],
       outcomes:
-        'Reduced manual formatting overhead and improved consistency across campus-wide student governance documentation.',
-      stack: ['Web Automation', 'Document Templates', 'Secretariat Operations', 'Workflow Optimization']
+        'Live in production at ssg-mom-generator.vercel.app and open-sourced at github.com/Huginn45/ssg-mom-generator.',
+      stack: ['AI Workflow Automation', 'Meeting Recipes', '.docx Upload', 'Markdown / GDocs / PDF Export', 'Vercel']
     }
   };
 
@@ -253,14 +286,81 @@
   const modalBody = document.getElementById('modal-body');
   let lastTrigger = null;
 
+  const lightboxEl = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCap = document.getElementById('lightbox-caption');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+  let lastLightboxTrigger = null;
+
+  function openLightbox(src, caption, triggerEl) {
+    if (!lightboxEl || !lightboxImg || !src) return;
+    lastLightboxTrigger = triggerEl || document.activeElement;
+    lightboxImg.src = src;
+    lightboxImg.alt = caption || 'Project screenshot preview';
+    if (lightboxCap) lightboxCap.textContent = caption || '';
+    lightboxEl.classList.add('is-open');
+    lightboxEl.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (lightboxCloseBtn) lightboxCloseBtn.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightboxEl) return;
+    lightboxEl.classList.remove('is-open');
+    lightboxEl.setAttribute('aria-hidden', 'true');
+    if (!modalBackdrop || !modalBackdrop.classList.contains('is-open')) {
+      document.body.style.overflow = '';
+    }
+    if (lastLightboxTrigger && typeof lastLightboxTrigger.focus === 'function') {
+      lastLightboxTrigger.focus();
+    }
+  }
+
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+  if (lightboxEl) {
+    lightboxEl.addEventListener('click', (e) => {
+      if (e.target === lightboxEl) closeLightbox();
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-lightbox-src]');
+    if (!trigger) return;
+    e.preventDefault();
+    openLightbox(
+      trigger.getAttribute('data-lightbox-src'),
+      trigger.getAttribute('data-lightbox-caption') || '',
+      trigger
+    );
+  });
+
   function openModal(projectId, triggerEl) {
     const study = CASE_STUDIES[projectId];
     if (!study || !modalBackdrop) return;
     lastTrigger = triggerEl || document.activeElement;
 
+    const galleryHtml =
+      study.screenshots && study.screenshots.length
+        ? `<div class="modal__section">
+            <h4>Project Screenshots (Click to Zoom)</h4>
+            <div class="modal__gallery">
+              ${study.screenshots
+                .map(
+                  (shot) => `
+                <button type="button" class="modal__thumb ${shot.portrait ? 'modal__thumb--portrait' : ''}" data-lightbox-src="${shot.src}" data-lightbox-caption="${shot.caption}">
+                  <img src="${shot.src}" alt="${shot.caption}" loading="lazy">
+                  <span class="modal__thumb-cap">${shot.caption}</span>
+                </button>`
+                )
+                .join('')}
+            </div>
+          </div>`
+        : '';
+
     modalEyebrow.textContent = study.eyebrow;
     modalTitle.textContent = study.title;
     modalBody.innerHTML = `
+      ${galleryHtml}
       <div class="modal__section">
         <h4>Overview &amp; Context</h4>
         <p>${study.context}</p>
@@ -313,8 +413,12 @@
     });
   }
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalBackdrop && modalBackdrop.classList.contains('is-open')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      if (lightboxEl && lightboxEl.classList.contains('is-open')) {
+        closeLightbox();
+      } else if (modalBackdrop && modalBackdrop.classList.contains('is-open')) {
+        closeModal();
+      }
     }
   });
 

@@ -171,12 +171,11 @@
           </div>
 
           <div class="canvas-stage" id="freeform-stage">
-            <!-- Polaroid 1: CiteFlow (Quiapo Crimson-Amber Palette) -->
-            <div class="polaroid" id="polaroid-citeflow" role="button" tabindex="0" aria-label="CiteFlow project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="citeflow" data-x="0.03" data-y="0.06" style="--rot: -3deg;">
-              <!-- ASSET SLOT: Replace .polaroid__photo--citeflow with CiteFlow dashboard screenshot -->
-              <div class="polaroid__photo polaroid__photo--citeflow">
+            <!-- Polaroid 1: CiteFlow (Real Admin Dashboard Screenshot) -->
+            <div class="polaroid" id="polaroid-citeflow" role="button" tabindex="0" aria-label="CiteFlow project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="citeflow" data-x="0.02" data-y="0.04" style="--rot: -2.8deg;">
+              <div class="polaroid__photo polaroid__photo--real">
+                <img class="polaroid__img" src="assets/citeflow-dashboard.webp" alt="CiteFlow Admin Dashboard screenshot">
                 <span class="polaroid__chip">QA &middot; 4.46 ISO</span>
-                <span class="polaroid__art">CiteFlow</span>
               </div>
               <div class="polaroid__caption">
                 <p class="polaroid__title">CiteFlow Portal</p>
@@ -186,39 +185,65 @@
               <span class="polaroid__hint">Open Case Study &rarr;</span>
             </div>
 
-            <!-- Polaroid 2: Hover (Jeepney Cerulean-Amber Palette) -->
-            <div class="polaroid" id="polaroid-hover" role="button" tabindex="0" aria-label="Hover project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="hover" data-x="0.26" data-y="0.16" style="--rot: 2.2deg;">
-              <!-- ASSET SLOT: Replace .polaroid__photo--hover with Hover v1.0 desktop overlay screenshot -->
-              <div class="polaroid__photo polaroid__photo--hover">
+            <!-- Polaroid 2: Hover (Real Floating Overlay Screenshot) -->
+            <div class="polaroid" id="polaroid-hover" role="button" tabindex="0" aria-label="Hover project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="hover" data-x="0.24" data-y="0.09" style="--rot: 2deg;">
+              <div class="polaroid__photo polaroid__photo--real">
+                <img class="polaroid__img" src="assets/hover.webp" alt="Hover desktop floating overlay screenshot">
                 <span class="polaroid__chip">Desktop v1.0</span>
-                <span class="polaroid__art">Hover</span>
               </div>
               <div class="polaroid__caption">
                 <p class="polaroid__title">Hover Utility</p>
                 <span class="polaroid__year">2026</span>
               </div>
-              <p class="polaroid__note">split-slider diff &amp; click-through overlay</p>
+              <p class="polaroid__note">snip shortcut &amp; always-on-top overlay</p>
               <span class="polaroid__hint">Open Case Study &rarr;</span>
             </div>
 
-            <!-- Polaroid 3: EnerSave (Batangas / Taal Emerald-Ochre Palette) -->
-            <div class="polaroid" id="polaroid-enersave" role="button" tabindex="0" aria-label="EnerSave project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="enersave" data-x="0.50" data-y="0.05" style="--rot: -2.4deg;">
-              <!-- ASSET SLOT: Replace .polaroid__photo--enersave with ESP8266 + relay hardware photo -->
-              <div class="polaroid__photo polaroid__photo--enersave">
+            <!-- Polaroid 3: Apir (Real High-Five Pairing Screenshot) -->
+            <div class="polaroid" id="polaroid-apir" role="button" tabindex="0" aria-label="Apir project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="apir" data-x="0.47" data-y="0.04" style="--rot: -2.1deg;">
+              <div class="polaroid__photo polaroid__photo--real">
+                <img class="polaroid__img polaroid__img--portrait" src="assets/apir.webp" alt="Apir High-Five Pairing QR and PIN window">
+                <span class="polaroid__chip">High-Five Pair</span>
+              </div>
+              <div class="polaroid__caption">
+                <p class="polaroid__title">Apir Pairing</p>
+                <span class="polaroid__year">2026</span>
+              </div>
+              <p class="polaroid__note">instant phone-to-PC QR &amp; PIN handshake</p>
+              <span class="polaroid__hint">Open Case Study &rarr;</span>
+            </div>
+
+            <!-- Polaroid 4: EnerSave (Real Live Hardware Demo Photo) -->
+            <div class="polaroid" id="polaroid-enersave" role="button" tabindex="0" aria-label="EnerSave project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="enersave" data-x="0.72" data-y="0.07" style="--rot: 2.6deg;">
+              <div class="polaroid__photo polaroid__photo--real">
+                <img class="polaroid__img polaroid__img--portrait" src="assets/enersave.webp" alt="EnerSave live classroom IoT hardware demonstration">
                 <span class="polaroid__chip">IoT &middot; ESP8266</span>
-                <span class="polaroid__art">EnerSave</span>
               </div>
               <div class="polaroid__caption">
                 <p class="polaroid__title">EnerSave IoT</p>
                 <span class="polaroid__year">2026</span>
               </div>
-              <p class="polaroid__note">ultrasonic motion + SinricPro voice control</p>
+              <p class="polaroid__note">3-bulb relay rig + SinricPro voice control</p>
               <span class="polaroid__hint">Open Case Study &rarr;</span>
             </div>
 
-            <!-- Polaroid 4: Parsers Hub 2.0 (Sulog Gold-Ochre Palette) -->
-            <div class="polaroid" id="polaroid-parsershub" role="button" tabindex="0" aria-label="Parsers Hub 2.0 project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="parsershub" data-x="0.74" data-y="0.11" style="--rot: 2.8deg;">
-              <!-- ASSET SLOT: Replace .polaroid__photo--parsers with Parsers Hub 2.0 UI / defense visual -->
+            <!-- Polaroid 5: SSG MoM Generator (Real Web App Screenshot) -->
+            <div class="polaroid" id="polaroid-ssgmom" role="button" tabindex="0" aria-label="SSG MoM Generator project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="ssgmom" data-x="0.22" data-y="0.50" style="--rot: -1.8deg;">
+              <div class="polaroid__photo polaroid__photo--real">
+                <img class="polaroid__img" src="assets/ssg-mom.webp" alt="SSG MoM Generator web interface screenshot">
+                <span class="polaroid__chip">SSG Tool</span>
+              </div>
+              <div class="polaroid__caption">
+                <p class="polaroid__title">SSG MoM Generator</p>
+                <span class="polaroid__year">26–27</span>
+              </div>
+              <p class="polaroid__note">1-click recipes, .docx upload &amp; PDF export</p>
+              <span class="polaroid__hint">Open Case Study &rarr;</span>
+            </div>
+
+            <!-- Polaroid 6: Parsers Hub 2.0 (Sulog Gold-Ochre Plate) -->
+            <div class="polaroid" id="polaroid-parsershub" role="button" tabindex="0" aria-label="Parsers Hub 2.0 project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="parsershub" data-x="0.54" data-y="0.49" style="--rot: 1.9deg;">
+              <!-- ASSET SLOT: Replace .polaroid__photo--parsers with Parsers Hub 2.0 UI screenshot when ready -->
               <div class="polaroid__photo polaroid__photo--parsers">
                 <span class="polaroid__chip">Systems &middot; LMS</span>
                 <span class="polaroid__art">Parsers 2.0</span>
@@ -231,28 +256,13 @@
               <span class="polaroid__hint">Open Case Study &rarr;</span>
             </div>
 
-            <!-- Polaroid 5: SSG MoM Generator (Narra & Capiz Palette) -->
-            <div class="polaroid" id="polaroid-ssgmom" role="button" tabindex="0" aria-label="SSG MoM Generator project card — click or press Enter to read case study, arrow keys to move" data-canvas-item data-canvas-study="ssgmom" data-x="0.39" data-y="0.45" style="--rot: -1.6deg;">
-              <!-- ASSET SLOT: Replace .polaroid__photo--ssgmom with SSG MoM Generator screenshot -->
-              <div class="polaroid__photo polaroid__photo--ssgmom">
-                <span class="polaroid__chip">SSG Tool</span>
-                <span class="polaroid__art">MoM Gen</span>
-              </div>
-              <div class="polaroid__caption">
-                <p class="polaroid__title">SSG MoM Generator</p>
-                <span class="polaroid__year">26–27</span>
-              </div>
-              <p class="polaroid__note">automated minutes &amp; secretariat ops</p>
-              <span class="polaroid__hint">Open Case Study &rarr;</span>
-            </div>
-
             <!-- Tactile Personal Notes -->
-            <div class="canvas-sticker" data-canvas-item data-x="0.06" data-y="0.60" style="--rot: 2.5deg;" aria-label="Personal note on internship focus">
+            <div class="canvas-sticker" data-canvas-item data-x="0.02" data-y="0.62" style="--rot: 2.4deg;" aria-label="Personal note on internship focus">
               <span class="canvas-sticker__kicker">Note &middot; 2026</span>
               <p class="canvas-sticker__text">Open for IT, SWE, Web Dev &amp; Multimedia internships!</p>
             </div>
 
-            <div class="canvas-sticker" data-canvas-item data-x="0.72" data-y="0.62" style="--rot: -2.2deg;" aria-label="Personal note on media tools">
+            <div class="canvas-sticker" data-canvas-item data-x="0.78" data-y="0.62" style="--rot: -2.2deg;" aria-label="Personal note on media tools">
               <span class="canvas-sticker__kicker">Live + Post AV</span>
               <p class="canvas-sticker__text">vMix &middot; Resolume &middot; DaVinci &middot; CapCut &middot; Lightroom grades</p>
             </div>
@@ -275,8 +285,8 @@
             <div class="proof-item__label">Mean System Usability Scale across 12 institutional modules</div>
           </div>
           <div class="proof-item">
-            <div class="proof-item__value">5 Shipped</div>
-            <div class="proof-item__label">Web, desktop, IoT firmware, and workflow automation systems</div>
+            <div class="proof-item__value">6 Shipped</div>
+            <div class="proof-item__label">Web, desktop, cross-device, IoT firmware, and workflow systems</div>
           </div>
           <div class="proof-item">
             <div class="proof-item__value">2 Terms</div>
@@ -295,12 +305,12 @@
             <h2 class="section-title" id="work-heading">Systems built, tested, and shipped.</h2>
             <div class="inabel-rule" aria-hidden="true"></div>
             <p class="section-subtitle">
-              From institutional QA and multi-window desktop utilities to ESP8266 energy automation — interact with live Capiz-framed project specimens below or open any full case study.
+              From institutional QA and Windows desktop utilities to cross-device pairing and ESP8266 automation — click any screenshot to zoom or open a full case study.
             </p>
           </div>
 
           <div class="filter-bar" role="tablist" aria-label="Filter projects by discipline">
-            <button type="button" class="filter-tab is-active" id="filter-all" role="tab" aria-selected="true" data-filter="all">All (5)</button>
+            <button type="button" class="filter-tab is-active" id="filter-all" role="tab" aria-selected="true" data-filter="all">All (6)</button>
             <button type="button" class="filter-tab" id="filter-web" role="tab" aria-selected="false" data-filter="web">Web &amp; Systems</button>
             <button type="button" class="filter-tab" id="filter-desktop" role="tab" aria-selected="false" data-filter="desktop">Desktop</button>
             <button type="button" class="filter-tab" id="filter-iot" role="tab" aria-selected="false" data-filter="iot">IoT &amp; Hardware</button>
@@ -308,7 +318,7 @@
         </div>
 
         <div class="projects-list">
-          <!-- Project 1: CiteFlow (Capiz Window · Quiapo Palette) -->
+          <!-- Project 1: CiteFlow (Capiz Window · Quiapo Palette + Real Screenshot) -->
           <article class="project-card heritage-brackets reveal" data-category="web">
             <div class="project-content">
               <div class="project-meta">
@@ -330,26 +340,27 @@
                 <span class="tag">Supabase / PostgreSQL</span>
                 <span class="tag">RBAC &amp; RLS</span>
               </div>
-              <button type="button" class="btn btn--secondary btn--sm" id="study-citeflow" data-open-study="citeflow">Read Case Study &rarr;</button>
+              <div class="project-actions">
+                <button type="button" class="btn btn--secondary btn--sm" id="study-citeflow" data-open-study="citeflow">Read Case Study (3 Shots) &rarr;</button>
+              </div>
             </div>
 
-            <div class="capiz-window" aria-label="CiteFlow quality assurance metrics preview">
+            <div class="capiz-window" aria-label="CiteFlow Admin Dashboard screenshot and QA verification metrics">
               <div class="capiz-shutter" aria-hidden="true"></div>
               <div class="capiz-aperture capiz-aperture--quiapo">
                 <div class="specimen-inner">
                   <div class="specimen-bar">
-                    <span>CiteFlow &middot; COTE QA Audit</span>
+                    <span>CiteFlow &middot; Live Admin Dashboard</span>
                     <span class="specimen-badge">ISO 25010 Verified</span>
                   </div>
-                  <div class="citeflow-metrics">
+                  <button type="button" class="specimen-shot" data-lightbox-src="assets/citeflow-dashboard.webp" data-lightbox-caption="CiteFlow Admin Dashboard — Live KPIs, Monthly Activity Trends & Quick Actions">
+                    <img src="assets/citeflow-dashboard.webp" alt="CiteFlow Admin Dashboard interface showing KPIs, charts, and faculty metrics" loading="lazy">
+                    <span class="specimen-shot__zoom">Zoom &nearr;</span>
+                  </button>
+                  <div class="citeflow-metrics" style="margin-bottom: 0;">
                     <div class="cf-stat"><div class="cf-stat__num">4.46</div><div class="cf-stat__lbl">ISO Quality</div></div>
                     <div class="cf-stat"><div class="cf-stat__num">80.0</div><div class="cf-stat__lbl">Mean SUS</div></div>
                     <div class="cf-stat"><div class="cf-stat__num">12</div><div class="cf-stat__lbl">Modules</div></div>
-                  </div>
-                  <div class="cf-pipeline">
-                    <div class="cf-row"><span>Faculty Submission &amp; Vault Validation</span><span class="cf-pill">PASS</span></div>
-                    <div class="cf-row"><span>Two-Stage Review &amp; Approval Lock</span><span class="cf-pill">PASS</span></div>
-                    <div class="cf-row"><span>RBAC &amp; Row-Level Security Checks</span><span class="cf-pill">PASS</span></div>
                   </div>
                 </div>
               </div>
@@ -357,7 +368,7 @@
             </div>
           </article>
 
-          <!-- Project 2: Hover (Capiz Window · Jeepney Palette) -->
+          <!-- Project 2: Hover (Capiz Window · Jeepney Palette + Interactive Slider + Real Screenshot) -->
           <article class="project-card project-card--reversed heritage-brackets reveal" data-category="desktop">
             <div class="capiz-window" aria-label="Interactive Hover split visual comparison demonstration">
               <div class="capiz-shutter" aria-hidden="true"></div>
@@ -410,7 +421,7 @@
                 An event-driven desktop productivity utility engineered to eliminate Alt-Tab screen-switching friction across multi-window engineering, design, and QA workflows.
               </p>
               <ul class="project-highlights">
-                <li>Architected and packaged Hover v1.0 for Windows as an always-on-top visual reference layer.</li>
+                <li>Architected and packaged Hover v1.0 for Windows with a compact floating toolbar and global <strong>Ctrl+Shift+S</strong> snip hotkey.</li>
                 <li>Implemented interactive canvas tools including a real-time split visual comparison slider (try dragging it).</li>
                 <li>Built click-through transparency mode and custom drawing/annotation tools for frictionless pixel checks.</li>
               </ul>
@@ -420,33 +431,60 @@
                 <span class="tag">Interactive Canvas</span>
                 <span class="tag">Click-Through Overlay</span>
               </div>
-              <button type="button" class="btn btn--secondary btn--sm" id="study-hover" data-open-study="hover">Read Case Study &rarr;</button>
+              <div class="project-actions">
+                <button type="button" class="btn btn--secondary btn--sm" id="study-hover" data-open-study="hover">Read Case Study &rarr;</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="shot-hover-btn" data-lightbox-src="assets/hover.webp" data-lightbox-caption="Hover v1.0 — Floating Toolbar & Pinned Reference Window on Windows">View Screenshot &nearr;</button>
+                <a href="https://github.com/Huginn45/Hover" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm" id="repo-hover">GitHub &nearr;</a>
+              </div>
             </div>
           </article>
 
-          <!-- Project 3: EnerSave (Capiz Window · Taal Palette) -->
-          <article class="project-card heritage-brackets reveal" data-category="iot web">
+          <!-- Project 3: Apir (Capiz Window · Quiapo Maroon/Gold Palette + Real Screenshot) -->
+          <article class="project-card heritage-brackets reveal" data-category="desktop">
             <div class="project-content">
-              <div class="project-meta"><span>2026</span><span>&middot;</span><span class="project-meta__role">Co-Developer &amp; Firmware Engineer</span></div>
-              <h3 class="project-title">EnerSave</h3>
-              <p class="project-tagline">Intelligent IoT Room Energy Monitoring &amp; Automation System</p>
+              <div class="project-meta"><span>2026</span><span>&middot;</span><span class="project-meta__role">Creator &amp; Developer</span></div>
+              <h3 class="project-title">Apir</h3>
+              <p class="project-tagline">Adaptive Presentation Interface &amp; Remote — QR Pairing Edition</p>
               <p class="project-summary">
-                A smart room energy management prototype controlling 220V lighting fixtures via ESP8266 firmware, ultrasonic motion detection, DHT11 sensing, SinricPro voice control, and a responsive web SPA.
+                A Filipino-inspired wireless presentation remote &amp; pairing utility ("High-Five Pairing") connecting a mobile phone and Windows PC instantaneously via QR scan, rotatable 4-digit PIN verification, and flexible network interface binding.
               </p>
               <ul class="project-highlights">
-                <li>Wired and programmed ESP8266 (NodeMCU / WeMos D1 Mini) with Ultrasonic motion detection, DHT11 sensor, and a 4-channel relay module.</li>
-                <li>Built adaptive operating modes (Standard Mode with auto-off logic and Night Mode for manual priority).</li>
-                <li>Integrated hands-free Alexa/Google Home voice commands via SinricPro synchronized with a live monitoring dashboard.</li>
+                <li>Built an instant QR-code handshake window scannable with a standard phone camera or the companion Apir App.</li>
+                <li>Added one-click rotatable 4-digit PIN verification (<strong>New PIN</strong>) to keep presentation remote sessions secure.</li>
+                <li>Implemented live network interface selection supporting local adapters and tunnel interfaces like Cloudflare WARP.</li>
               </ul>
               <div class="tag-row">
-                <span class="tag">ESP8266 Firmware</span>
-                <span class="tag">Ultrasonic &amp; DHT11</span>
-                <span class="tag">SinricPro Voice</span>
-                <span class="tag">Web SPA Dashboard</span>
+                <span class="tag">Presentation Remote</span>
+                <span class="tag">QR &amp; PIN Pairing</span>
+                <span class="tag">Network Binding</span>
+                <span class="tag">Cross-Device UX</span>
               </div>
-              <button type="button" class="btn btn--secondary btn--sm" id="study-enersave" data-open-study="enersave">Read Case Study &rarr;</button>
+              <div class="project-actions">
+                <button type="button" class="btn btn--secondary btn--sm" id="study-apir" data-open-study="apir">Read Case Study &rarr;</button>
+                <a href="https://github.com/Huginn45/Apir" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm" id="repo-apir">GitHub &nearr;</a>
+              </div>
             </div>
 
+            <div class="capiz-window" aria-label="Apir High-Five Pairing desktop application screenshot">
+              <div class="capiz-shutter" aria-hidden="true"></div>
+              <div class="capiz-aperture capiz-aperture--quiapo">
+                <div class="specimen-inner">
+                  <div class="specimen-bar">
+                    <span>Apir &middot; High-Five Pairing</span>
+                    <span class="specimen-badge">QR + PIN Sync</span>
+                  </div>
+                  <button type="button" class="specimen-shot specimen-shot--portrait" style="margin-bottom: 0;" data-lightbox-src="assets/apir.webp" data-lightbox-caption="Apir — High-Five Pairing Window with QR Scan, Rotatable PIN & Network Interface Selector">
+                    <img src="assets/apir.webp" alt="Apir High-Five Pairing desktop window showing maroon and gold QR code and PIN interface" loading="lazy">
+                    <span class="specimen-shot__zoom">Zoom &nearr;</span>
+                  </button>
+                </div>
+              </div>
+              <div class="capiz-shutter" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <!-- Project 4: EnerSave (Capiz Window · Taal Palette + Interactive Simulator + Real Demo Photo) -->
+          <article class="project-card project-card--reversed heritage-brackets reveal" data-category="iot web">
             <div class="capiz-window" aria-label="Interactive EnerSave operating mode simulator">
               <div class="capiz-shutter" aria-hidden="true"></div>
               <div class="capiz-aperture capiz-aperture--taal">
@@ -475,9 +513,81 @@
               </div>
               <div class="capiz-shutter" aria-hidden="true"></div>
             </div>
+
+            <div class="project-content">
+              <div class="project-meta"><span>2026</span><span>&middot;</span><span class="project-meta__role">Co-Developer &amp; Firmware Engineer</span></div>
+              <h3 class="project-title">EnerSave</h3>
+              <p class="project-tagline">Intelligent IoT Room Energy Monitoring &amp; Automation System</p>
+              <p class="project-summary">
+                A smart room energy management prototype controlling 220V lighting fixtures via ESP8266 firmware, ultrasonic motion detection, DHT11 sensing, SinricPro voice control, and a responsive web SPA.
+              </p>
+              <ul class="project-highlights">
+                <li>Wired and programmed ESP8266 (NodeMCU / WeMos D1 Mini) with Ultrasonic motion detection, DHT11 sensor, and a 4-channel relay module.</li>
+                <li>Built adaptive operating modes (Standard Mode with auto-off logic and Night Mode for manual priority).</li>
+                <li>Integrated hands-free Alexa/Google Home voice commands via SinricPro synchronized with a live monitoring dashboard.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">ESP8266 Firmware</span>
+                <span class="tag">Ultrasonic &amp; DHT11</span>
+                <span class="tag">SinricPro Voice</span>
+                <span class="tag">Web SPA Dashboard</span>
+              </div>
+              <div class="project-actions">
+                <button type="button" class="btn btn--secondary btn--sm" id="study-enersave" data-open-study="enersave">Read Case Study &rarr;</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="shot-enersave-btn" data-lightbox-src="assets/enersave.webp" data-lightbox-caption="EnerSave Live Classroom Demo — Working 3-Bulb ESP8266 Relay Prototype">View Hardware Photo &nearr;</button>
+              </div>
+            </div>
           </article>
 
-          <!-- Project 4: Parsers Hub 2.0 (Capiz Window · Sinulog Palette) -->
+          <!-- Project 5: SSG MoM Generator (Capiz Window · Sinulog Palette + Real Screenshot) -->
+          <article class="project-card heritage-brackets reveal" data-category="web">
+            <div class="project-content">
+              <div class="project-meta"><span>2026 – 2027</span><span>&middot;</span><span class="project-meta__role">Builder &middot; Deputy Executive Secretary</span></div>
+              <h3 class="project-title">SSG MoM Generator</h3>
+              <p class="project-tagline">AI-Powered Legislative Minutes of the Meeting Generator</p>
+              <p class="project-summary">
+                Built and deployed inside the Supreme Student Government at CTU–Argao to convert rough shorthand notes or existing <code>.docx</code> drafts into consistently formatted official Minutes of the Meeting.
+              </p>
+              <ul class="project-highlights">
+                <li>Features 1-click <strong>Meeting Recipes</strong> (Legislative, Executive, Emergency), drag-and-drop <code>.docx</code> upload, and fast shorthand/dictation input.</li>
+                <li>Includes live <strong>Formatted Minutes</strong> and <strong>Markdown</strong> editing with 1-click export to Google Docs, Markdown, and PDF.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">AI Workflow Automation</span>
+                <span class="tag">Meeting Recipes</span>
+                <span class="tag">.docx &amp; PDF Export</span>
+                <span class="tag">Live on Vercel</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://ssg-mom-generator.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm" id="live-ssgmom">Open Live App &nearr;</a>
+                <button type="button" class="btn btn--secondary btn--sm" id="study-ssgmom" data-open-study="ssgmom">Read Case Study &rarr;</button>
+                <a href="https://github.com/Huginn45/ssg-mom-generator" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm" id="repo-ssgmom">GitHub &nearr;</a>
+              </div>
+            </div>
+
+            <div class="capiz-window" aria-label="SSG MoM Generator web interface screenshot">
+              <div class="capiz-shutter" aria-hidden="true"></div>
+              <div class="capiz-aperture capiz-aperture--sinulog">
+                <div class="specimen-inner">
+                  <div class="specimen-bar">
+                    <span>SSG – CTU Argao &middot; Live Workspace</span>
+                    <span class="specimen-badge">Deployed</span>
+                  </div>
+                  <button type="button" class="specimen-shot specimen-shot--tall" data-lightbox-src="assets/ssg-mom.webp" data-lightbox-caption="SSG MoM Generator — Legislative/Executive/Emergency Recipes, .docx Upload & GDocs/MD/PDF Export">
+                    <img src="assets/ssg-mom.webp" alt="SSG MoM Generator web interface showing Meeting Recipes, document upload, and export controls" loading="lazy">
+                    <span class="specimen-shot__zoom">Zoom &nearr;</span>
+                  </button>
+                  <div class="ipo-foot" style="margin-top: 0;">
+                    <span>Presets: Legislative &middot; Executive &middot; Emergency</span>
+                    <span>Export: GDocs / MD / PDF</span>
+                  </div>
+                </div>
+              </div>
+              <div class="capiz-shutter" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <!-- Project 6: Parsers Hub 2.0 (Capiz Window · Sinulog Palette) -->
           <article class="project-card project-card--reversed heritage-brackets reveal" data-category="web">
             <div class="capiz-window" aria-label="Parsers Hub 2.0 IPO system architecture overview">
               <div class="capiz-shutter" aria-hidden="true"></div>
@@ -532,48 +642,6 @@
                 <span class="tag">Agile SDLC</span>
               </div>
               <button type="button" class="btn btn--secondary btn--sm" id="study-parsershub" data-open-study="parsershub">Read Case Study &rarr;</button>
-            </div>
-          </article>
-
-          <!-- Project 5: SSG MoM Generator (Capiz Window · Quiapo/Gold Palette) -->
-          <article class="project-card heritage-brackets reveal" data-category="web">
-            <div class="project-content">
-              <div class="project-meta"><span>2026 – 2027</span><span>&middot;</span><span class="project-meta__role">Builder &middot; Deputy Executive Secretary</span></div>
-              <h3 class="project-title">SSG MoM Generator</h3>
-              <p class="project-tagline">Automated Secretariat Minutes &amp; Governance Workflow Tool</p>
-              <p class="project-summary">
-                Built and deployed inside the Supreme Student Government at CTU–Argao to turn raw meeting notes into consistently formatted official Minutes of the Meeting and streamline recurring campus documentation.
-              </p>
-              <ul class="project-highlights">
-                <li>Automated structured generation of official Minutes of the Meeting for executive and legislative sessions.</li>
-                <li>Standardized secretariat workflows across Notices of Meeting, Memorandums, Request Letters, Waivers, and Accomplishment Reports.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag">Workflow Automation</span>
-                <span class="tag">Web Tool</span>
-                <span class="tag">Secretariat Ops</span>
-              </div>
-              <button type="button" class="btn btn--secondary btn--sm" id="study-ssgmom" data-open-study="ssgmom">Read Case Study &rarr;</button>
-            </div>
-
-            <div class="capiz-window" aria-label="SSG MoM Generator document automation preview">
-              <div class="capiz-shutter" aria-hidden="true"></div>
-              <div class="capiz-aperture capiz-aperture--sinulog">
-                <div class="specimen-inner">
-                  <div class="specimen-bar">
-                    <span>SSG – CTU Argao &middot; Secretariat Suite</span>
-                    <span class="specimen-badge">Deployed</span>
-                  </div>
-                  <div class="mom-sheet">
-                    <div class="mom-sheet__title"><span>Minutes of the Meeting</span><span>Auto-Formatted</span></div>
-                    <div class="mom-line"><span>Session Type</span><strong>Executive &amp; Legislative</strong></div>
-                    <div class="mom-line"><span>Archive Structure</span><strong>MoM &middot; Notices &middot; Memos</strong></div>
-                    <div class="mom-line"><span>Administrative Docs</span><strong>Requests &middot; Waivers &middot; Reports</strong></div>
-                    <div class="mom-line"><span>Template Compliance</span><strong style="color: var(--verify);">100% Standardized</strong></div>
-                  </div>
-                </div>
-              </div>
-              <div class="capiz-shutter" aria-hidden="true"></div>
             </div>
           </article>
         </div>
@@ -723,6 +791,10 @@
                 <button type="button" class="btn btn--secondary btn--sm" id="copy-phone-btn" data-copy="09939317672" data-copy-label="Phone">Copy</button>
               </div>
               <div class="channel-row">
+                <div><span class="channel-row__label">GitHub</span><a href="https://github.com/Huginn45" target="_blank" rel="noopener noreferrer" class="channel-row__value">github.com/Huginn45</a></div>
+                <a href="https://github.com/Huginn45" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" id="contact-github-link">Open &nearr;</a>
+              </div>
+              <div class="channel-row">
                 <div><span class="channel-row__label">Location</span><span class="channel-row__value">Poblacion, Argao, Cebu 6021</span></div>
               </div>
             </div>
@@ -764,6 +836,21 @@
         </button>
       </div>
       <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Screenshot Zoom Lightbox -->
+  <div class="lightbox" id="image-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Enlarged project screenshot">
+    <div class="lightbox__frame">
+      <div class="lightbox__bar">
+        <span id="lightbox-caption"></span>
+        <button type="button" class="icon-btn" id="lightbox-close-btn" aria-label="Close enlarged screenshot" style="background: hsla(20,24%,12%,0.9); color: #fff; border-color: hsla(40,40%,80%,0.35);">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <img class="lightbox__img" id="lightbox-img" src="" alt="">
     </div>
   </div>
 

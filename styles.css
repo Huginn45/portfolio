@@ -564,7 +564,7 @@ img, svg { display: block; max-width: 100%; }
 
 .canvas-stage {
   position: relative;
-  height: 495px;
+  height: 545px;
   overflow: hidden;
   background-color: var(--bg);
   background-image:
@@ -964,6 +964,149 @@ img, svg { display: block; max-width: 100%; }
 .modal__section { margin-bottom: 1.35rem; }
 .modal__section h4 { font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 0 0 0.55rem; }
 .modal__section p { margin: 0; color: var(--ink-secondary); font-size: 0.95rem; }
+
+/* Real Screenshot Prints inside Polaroids, Capiz Windows & Modals */
+.polaroid__photo--real { padding: 0; background: var(--narra-deep); }
+.polaroid__photo--real::after { background: linear-gradient(180deg, hsla(20, 30%, 6%, 0.08) 40%, hsla(20, 30%, 6%, 0.62) 100%); }
+.polaroid__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 0 !important; transition: transform 0.35s var(--ease-out); }
+.polaroid__img--portrait { object-position: center 22%; }
+.polaroid:hover .polaroid__img { transform: scale(1.04); }
+.polaroid__photo--real .polaroid__chip { position: absolute; top: 0.45rem; left: 0.45rem; z-index: 2; }
+
+.specimen-shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--narra-deep);
+  padding: 0;
+  margin-bottom: 0.75rem;
+  cursor: zoom-in;
+  text-align: left;
+}
+.specimen-shot img {
+  width: 100%;
+  height: 176px;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.35s var(--ease-out);
+}
+.specimen-shot:hover img { transform: scale(1.03); }
+
+.specimen-shot--tall img { height: 215px; }
+
+.specimen-shot--portrait {
+  display: grid;
+  place-items: center;
+  height: 245px;
+  background: radial-gradient(circle at 50% 45%, hsla(20, 42%, 22%, 0.92), hsl(20, 36%, 11%));
+  padding: 0.6rem;
+}
+.specimen-shot--portrait img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.45);
+}
+
+.specimen-shot__zoom {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 4px;
+  background: hsla(20, 28%, 8%, 0.78);
+  color: hsl(40, 44%, 97%);
+  backdrop-filter: blur(4px);
+}
+
+.modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.35rem;
+}
+.modal__thumb {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg);
+  padding: 0;
+  cursor: zoom-in;
+  text-align: left;
+  transition: border-color 0.2s, transform 0.2s var(--ease-out);
+}
+.modal__thumb:hover { border-color: var(--accent); transform: translateY(-2px); }
+.modal__thumb img {
+  width: 100%;
+  height: 122px;
+  object-fit: cover;
+  object-position: top center;
+}
+.modal__thumb--portrait img {
+  object-fit: contain;
+  background: hsl(20, 36%, 12%);
+  padding: 0.25rem;
+}
+.modal__thumb-cap {
+  display: block;
+  padding: 0.42rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Fullscreen Screenshot Zoom Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  background: hsla(20, 28%, 5%, 0.88);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2.25rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s var(--ease-out);
+}
+.lightbox.is-open { opacity: 1; pointer-events: auto; }
+.lightbox__frame {
+  position: relative;
+  max-width: min(1040px, 95vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 78vh;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--narra);
+  box-shadow: var(--shadow-lg);
+  background: hsl(20, 20%, 10%);
+}
+.lightbox__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  color: hsl(40, 44%, 95%);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
 
 .toast { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 600; background: var(--narra-deep); color: hsl(40, 44%, 96%); padding: 0.72rem 1.1rem; border-radius: var(--radius-sm); font-size: 0.86rem; font-weight: 500; box-shadow: var(--shadow-md); transform: translateY(20px); opacity: 0; pointer-events: none; transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out); }
 .toast.is-visible { opacity: 1; transform: translateY(0); }
